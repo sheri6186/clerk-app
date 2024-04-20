@@ -1,37 +1,43 @@
 import Link from 'next/link';
 import { UserButton, auth } from '@clerk/nextjs';
 
-const Header = async ({ username }) => {
+const Header = async ({ username}) => {
   const { userId } = auth();
 
   return (
-    <nav className='flex items-center justify-between px-6 py-4 mb-5 bg-blue-700'>
+    <nav className='flex items-center justify-between px-6 py-4 mb-5  bg-red-700'>
       <div className='flex items-center'>
         <Link href='/'>
           <div className='text-lg font-bold text-white uppercase'>
-            Clerk App
+            Article Website
           </div>
+        </Link>
+        <Link href='/social' className='text-white hover:text-black mx-4'>
+          Social News
+        </Link>
+        <Link href='/education' className='text-white hover:text-black mx-4'>
+          Education News
+        </Link>
+        <Link href='/sports' className='text-white hover:text-black mx-4'>
+          Sports News
+        </Link>
+        <Link href='/hot-news' className='text-white hover:text-black mx-4'>
+          Hot News Today
         </Link>
       </div>
       <div className='flex items-center text-white'>
         {!userId && (
           <>
-            <Link
-              href='sign-in'
-              className='text-gray-300 hover:text-white mr-4'
-            >
-              Sign In
+            <Link href='/sign-in' className='text-white hover:text-black mr-4'>
+              Log in
             </Link>
-            <Link
-              href='sign-up'
-              className='text-gray-300 hover:text-white mr-4'
-            >
+            <Link href='/sign-up' className='text-white hover:text-black mr-4'>
               Sign Up
             </Link>
           </>
         )}
         {userId && (
-          <Link href='profile' className='text-gray-300 hover:text-white mr-4'>
+          <Link href='/profile' className='text-gray-300 hover:text-white mr-4'>
             Profile
           </Link>
         )}
